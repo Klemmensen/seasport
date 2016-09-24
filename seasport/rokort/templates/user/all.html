@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}{{metaTitle}}{% endblock %}
+
+{% block content-title %}
+    <h3>{{pageTitle}}</h3>
+{% endblock %}
+
+{% block left-bar %}
+    {% include "shared/pages-left-nav.html" %}
+{% endblock %}
+
+{% block content %}
+
+    {% for User in Users.all %}
+        <div style="width:25%; float: left; padding:10px;">
+            <div style="background:#EEE; padding:10px;">
+                {{ User.first_name }} {{ User.last_name }}
+                <br />
+                ID: {{ User.id }}
+                <br />
+                Opdateret:
+                <br />
+                D. {{ User.updated_at|date:"d M Y, H:i:s" }}
+                <br />
+                <a href="{% url 'user-edit' id=User.id %}">Edit</a>
+                <br />
+            </div>
+        </div>
+    {% endfor %}
+
+    <div style="clear: both;"></div>
+
+    <!--
+    <form name="pages-search-form">
+        <input class="input-general input-full-width input-pages-search" type="text" name="pages-search-form-input" placeholder="Search your pages.." />
+    </form>
+
+    <table class="table-general table-pages">
+        <thead>
+            <tr>
+                <th><p>ID</p></th>
+                <th><p>Name</p></th>
+                <th><p>Title</p></th>
+                <th><p>Url</p></th>
+                <th><p>Type</p></th>
+                <th><p>Status</p></th>
+                <th class="select-th">
+                    <select name="select-pages-filter" class="input-select-general select-pages-filter">
+                        <option value="page">All page types</option>
+                        <option value="page">Pages</option>
+                        <option value="blog">Blog post</option>
+                        <option value="storylines">Storylines</option>
+                        <option value="products">Products</option>
+                        <option value="plugins">Plugins</option>
+                    </select>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><p>1</p></td>
+                <td><p>Home</p></td>
+                <td><p>Home title</p></td>
+                <td><p>/</p></td>
+                <td><p>Page</p></td>
+                <td><p>Published</p></td>
+                <td><p></p></td>
+            </tr>
+        </tbody>
+    </table>-->
+{% endblock %}

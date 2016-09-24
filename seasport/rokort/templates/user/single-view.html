@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{metaTitle}}{% endblock %}
+
+{% block content-title %}
+    <h3>{{pageTitle}}</h3>
+{% endblock %}
+
+{% block left-bar %}
+    {% include "shared/pages-left-nav.html" %}
+{% endblock %}
+
+{% block content %}
+    {{content}}
+{% endblock %}

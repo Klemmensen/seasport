@@ -1,0 +1,90 @@
+{% extends "base-full-width.html" %}
+
+{% block title %}{{metaTitle}}{% endblock %}
+
+{% block content-title %}
+    <h3>{{pageTitle}}</h3>
+{% endblock %}
+
+{% block content %}
+<style>
+ul.ul {margin-left:30px;}
+</style>
+    <h3>Funktionalitet på administrator niveau (club_admin)</h3>
+    <hr />
+    <ul class="ul">
+        <li>Påkrævet admin niveau: club_admin</li>
+        <li>
+            Komplet CRUD (For alle brugere):
+            <ul class="ul">
+                <li>Se alle sider/oversigter</li>
+                <li>Oprette medlemmer (Via admin og csv import), Redigere medlemmer, Slette medlemmer</li>
+                <li>Oprette klub events, Redigere klub events, Slette klub events</li>
+                <li>Oprette både, Redigere både, Slette både</li>
+            </ul>
+        </li>
+        <li>Facebook:
+            <ul class="ul">
+                <li>Indtaste og redigere api informationer til klubbens Facebook side</li>
+                <li>Poste oprettede klub events direkte fra admin til Facebook sidens wall (Billede, beskrivelse, link m.m.)</li>
+            </ul>
+        </li>
+        <li>Abbonnements oversigt for klubben</li>
+        <li>Skrive informations beskeder/opslag på klub</li>
+    </ul>
+
+    <br />
+
+    <h3>Funktionalitet på bruger niveau (club_admin & club_user)</h3>
+    <hr />
+    <ul class="ul">
+        <li>Påkrævet admin niveau: club_admin & club_user</li>
+        <li>
+            Komplet CRUD (For egen bruger):
+            <ul class="ul">
+                <li>Se alle sider/oversigter</li>
+                <li>Redigere egen profil, Slette egen profil</li>
+                <li>Oprette ture, Redigere egne oprettede ture, Slette egne oprettede ture
+                    <ul class="ul">
+                        <li>Give turen en status (Åben: Alle kan melde sig til den - Lukket: Egen tur - Delt: Invitere udvalgte medlemmer)</li>
+                    </ul>
+                </li>
+                <li>Fra- og tilmelde sig til andres ÅBNE ture (hvis der er plads)</li>
+                <li>Oprette grupper (Invitere andre medlemmer)
+                    <ul class="ul">
+                        <li>Oprette gruppe events/ture, redigere egne oprettede gruppe events/ture, slette egne oprettede gruppe events/ture</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Skrive opslag på klub admin wall</li>
+        <li>Facebook:
+            <ul class="ul">
+                <li>Poste sin(e) sejltur(e) på sin egen Facebook sides wall (Billede, beskrivelse m.m.)</li>
+            </ul>
+        </li>
+        <li>Modtage SMS 1 døgn inden en tilmeldt tur/event starter</li>
+    </ul>
+
+
+    <br />
+    <hr />
+
+    <h3>Funktionalitet på tværs af klubber (club_admin)</h3>
+    <ul class="ul">
+        <li>Påkrævet admin niveau: club_admin</li>
+        <li>
+            CRUD:
+            <ul class="ul">
+                <li>Flytte/kopiere et medlem fra en anden klub, såfremt den anden klub bruger systemet OG har godkendt flytning</li>
+                <li>Oprette shared klub events, Redigere shared klub events, Slette shared klub events
+                    <ul class="ul">
+                        <li>Invitere udvalgte klubber</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Skrive besked til andre klubber hvis denne mulighed er 'ticked of' i settings</li>
+    </ul>
+
+{% endblock %}
