@@ -18,6 +18,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'seasport',
     'rokort',
     'widget_tweaks',
     'django.contrib.contenttypes',
