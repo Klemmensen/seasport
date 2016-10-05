@@ -12,11 +12,17 @@ html, body {
 }
 
 body {
-    background-image: url("../img/body-background.jpg");
+    background-image:url("../img/body-background.jpg");
     background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-size: cover;
 }
 
 .clear { clear:both; }
+
+h1, h2, h3, h4, h5 {
+    font-weight:lighter;
+}
 
 div, input, table, th, td, section, article, nav, header, footer {
     box-sizing: border-box !important;
@@ -25,11 +31,15 @@ div, input, table, th, td, section, article, nav, header, footer {
 .wrapper {
     width:90%;
     margin:0 auto;
+    margin-top:20px;
+    background:rgba(255,255,255,.97);
+    min-height:600px;
 }
 
 .header {
     width:100%;
     height:70px;
+    background:#fff;
     border-bottom:1px solid #eee;
     ul li {
         list-style-type: none;
@@ -50,10 +60,16 @@ div, input, table, th, td, section, article, nav, header, footer {
     }
 }
 
+.home-info-box {
+    background:#eee;
+    min-height:200px;
+    h4 {
+        text-align: center;
+    }
+}
+
 .content {
-    width:calc(100%/6*5);
-    padding:15px !important;
-    float:left;
+    padding:15px;
 }
 
 /* Bootstrap overrides */
