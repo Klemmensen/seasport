@@ -11,6 +11,11 @@ html, body {
     font-weight: lighter;
 }
 
+body {
+    background-image: url("../img/body-background.jpg");
+    background-repeat:no-repeat;
+}
+
 .clear { clear:both; }
 
 div, input, table, th, td, section, article, nav, header, footer {
