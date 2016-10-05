@@ -1,13 +1,14 @@
-from django.shortcuts import render
 from django.shortcuts import redirect
+from django.shortcuts import render
 from django.views.generic.base import TemplateView
+
 from . import forms
 from . import models
 
 
 class Home(TemplateView):
 
-    template_name = 'home/index.html'
+    template_name = 'rokort/home/index.html'
     context = { 'metaTitle':'Home page title', 'pageTitle':'Admin - Home page title' }
 
     def get(self, request):
@@ -16,7 +17,7 @@ class Home(TemplateView):
 
 class User(TemplateView):
 
-    template_name = 'user/single-view.html'
+    template_name = 'rokort/user/single-view.html'
     Users = models.User.objects.all()
     context = {'metaTitle': 'Admin - Users Overview', 'pageTitle':'Admin - All users', 'Users': Users}
 
@@ -26,7 +27,7 @@ class User(TemplateView):
 
 class UserEdit(TemplateView):
 
-    template_name = 'user/single-edit.html'
+    template_name = 'rokort/user/single-edit.html'
     context = {'metaTitle': 'Admin - User single edit page', 'pageTitle':'Admin - User single edit page'}
 
     def get(self, request, id):
@@ -53,7 +54,7 @@ class UserEdit(TemplateView):
 
 class UsersAll(TemplateView):
 
-    template_name = 'user/all.html'
+    template_name = 'rokort/user/all.html'
     context = {'metaTitle': 'Admin - Users Overview', 'pageTitle': 'Admin - All users'}
 
     def get(self, request):

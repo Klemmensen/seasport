@@ -1,0 +1,31 @@
+{% load widget_tweaks %}
+
+{% if UserForm.errors %}
+    {% for key, value in UserForm.errors.items %}
+        {% for error in value %}
+         <p>{{ error }}</p>
+        {% endfor %}
+    {% endfor %}
+    <br />
+{% endif %}
+
+{% if Valid == 1 %}
+    <div class="alert alert-success" role="alert"><p>{{ SuccessMessage }}</p></div>
+{% endif %}
+
+<form method="POST" name="update-user-form" novalidate>
+    {% csrf_token %}
+    <div class="input-wrapper">
+        <label for="{{ UserForm.first_name.id_for_label }}">Fornavn:</label>
+        {{ UserForm.first_name|add_error_class:"error-border" }}
+    </div>
+    <div class="input-wrapper">
+        <label for="{{ UserForm.last_name.id_for_label }}">Efternavn:</label>
+        {{ UserForm.last_name|add_error_class:"error-border" }}
+    </div>
+    <div class="input-wrapper">
+        <label for="{{ UserForm.email.id_for_label }}">Email:</label>
+        {{ UserForm.email|add_error_class:"error-border" }}
+    </div>
+    <input type="submit" value="Submit" />
+</form>

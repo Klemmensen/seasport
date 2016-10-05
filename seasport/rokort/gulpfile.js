@@ -10,33 +10,33 @@ var rename  = require('gulp-rename');
 
 // Lint Task
 gulp.task('lint', function() {
-    return gulp.src('static/js/*.js')
+    return gulp.src('static/rokort/js/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
 // Compile Our Sass
 gulp.task('sass', function() {
-    return gulp.src('static/scss/*.scss')
+    return gulp.src('static/rokort/scss/*.scss')
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(rename('all.min.css'))
-        .pipe(gulp.dest('static/dist'));
+        .pipe(gulp.dest('static/rokort/dist'));
 });
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-    return gulp.src('static/js/*.js')
+    return gulp.src('static/rokort/js/*.js')
         .pipe(concat('all.js'))
-        .pipe(gulp.dest('static/dist'))
+        .pipe(gulp.dest('static/rokort/dist'))
         .pipe(rename('all.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('static/dist'));
+        .pipe(gulp.dest('static/rokort/dist'));
 });
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('static/js/*.js', ['lint', 'scripts']);
-    gulp.watch('static/scss/*.scss', ['sass']);
+    gulp.watch('static/rokort/js/*.js', ['lint', 'scripts']);
+    gulp.watch('static/rokort/scss/*.scss', ['sass']);
 });
 
 // Default Task

@@ -1,0 +1,17 @@
+{% extends "rokort/base.html" %}
+
+{% block title %}{{metaTitle}}{% endblock %}
+
+{% block content-title %}
+    <h3>{{pageTitle}}</h3>
+{% endblock %}
+
+{% block left-bar %}
+    {% include "rokort/shared/pages-left-nav.html" %}
+{% endblock %}
+
+{% block content %}
+    <h3>Edit: {{ User.first_name }} {{ User.last_name }}</h3>
+    <hr />
+    {% include "rokort/forms/user-form-edit.html" %}
+{% endblock %}
