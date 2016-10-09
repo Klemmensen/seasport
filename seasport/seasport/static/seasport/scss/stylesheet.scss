@@ -82,23 +82,46 @@ div, input, table, th, td, section, article, nav, header, footer {
         right:15px;
         font-size:14px;
         padding:0px 20px 3px 20px;
-        background:#2B3856;
+        background:rgba(43,56,86,.75);
         color:#fff;
         line-height:25px;
+    }
+    a.backend-login:hover {
+        background:rgba(43,56,86,1);
     }
     .flag-container {
         position: absolute;
         top:0px;
-        right:92px;
+        right:100px;
     }
     img.header-lang-flag {
-        width:30px;
-        height:20px;
-        margin-top:5px;
+        width:27px;
+        height:18px;
+        margin-top:6px;
         margin-right:5px;
         cursor: pointer;
+        opacity:.6;
+    }
+    img.header-lang-flag:hover {
+        opacity:1;
     }
 }
+
+.scroll-menu {
+    width:100%;
+    height:40px;
+    position:fixed;
+    top:0px;
+    left:0px;
+    background:#fff;
+    border-bottom:1px solid #eee;
+    display:none;
+    a {
+        line-height:40px;
+    }
+}
+
+
 .footer {
     width:100%;
     background:rgba(255,255,255,.97);
