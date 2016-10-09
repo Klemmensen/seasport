@@ -24,14 +24,26 @@ h1, h2, h3, h4, h5 {
     font-weight:lighter;
 }
 
+.center {
+    text-align:center;
+}
+
+ul {
+    margin-left:25px;
+}
+
 div, input, table, th, td, section, article, nav, header, footer {
     box-sizing: border-box !important;
 }
 
-.wrapper {
+.wrapper-general {
     width:90%;
     margin:0 auto;
+}
+
+.wrapper {
     margin-top:20px;
+    margin-bottom:20px;
     background:rgba(255,255,255,.97);
     min-height:600px;
 }
@@ -59,17 +71,41 @@ div, input, table, th, td, section, article, nav, header, footer {
         background:#eee;
     }
 }
+.footer {
+    width:100%;
+    background:rgba(255,255,255,.97);
+    .content {
+        padding:10px 10px 0px 10px;
+    }
+}
 
 .home-info-box {
     background:#eee;
     min-height:200px;
-    h4 {
-        text-align: center;
+}
+.home-top-box {
+    background: #2B3856;
+    min-height:250px;
+    color:#fff;
+    h1, h3 {
+        text-align:center;
+    }
+    .home-top-inner-box-border {
+        background:rgba(255,255,255,.03);
+        margin-top:20px;
+        margin-bottom:20px;
+        height:3px;
+    }
+    .image-container {
+        background:#fff;
+        color:#000;
+        min-height:250px;
+        width:100%;
     }
 }
 
 .content {
-    padding:15px;
+    padding:20px;
 }
 
 /* Bootstrap overrides */
