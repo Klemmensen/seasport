@@ -1,5 +1,7 @@
 {% extends "seasport/base-full-width.html" %}
 
+{% load static %}
+
 {% block title %}{{metaTitle}}{% endblock %}
 
 {% block content %}
@@ -28,9 +30,42 @@
         </div>
     </div>
 
+    <div class="row" style="margin-top:30px;">
+        <div class="col-xs-12">
+            <div class="home-import-box center">
+                <div class="border"></div>
+                <br />
+                <h1>Existing member data? No problem.</h1>
+                <h3>We set you up - Free of charge.</h3>
+                <p>
+                    All we need is what is easiest for you to provide.
+                    One of the below formats will work:
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><img src="{% static 'seasport/img/database-icon.png' %}" class="home-import-type-icon" /></td>
+                            <td><p>SQL dump of your existing users and boats</p></td>
+                        </tr>
+                        <tr>
+                            <td><img src="{% static 'seasport/img/csv-icon.png' %}" class="home-import-type-icon" /></td>
+                            <td><p>CSV file of your existing users and boats</p></td>
+                        </tr>
+                        <tr>
+                            <td><img src="{% static 'seasport/img/excel-icon.png' %}" class="home-import-type-icon" /></td>
+                            <td><p>EXCEL file of your existing users and boats</p></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <div class="border"></div>
+            </div>
+        </div>
+    </div>
+
     <div class="row" style="margin-top:15px; padding:15px 15px 0px 15px;">
 
-        <h1 class="center">Wait. There is a lot more.</h1>
+        <h1 class="center">Wait. There is a lot more than that.</h1>
         <br />
 
         <div class="col-xs-12 col-md-4">
@@ -77,7 +112,9 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="content">
-                <h3 class="center">Easy to use and cheapest system on the market</h3>
+                <br />
+                <h3 class="center"><i>It's simply just easy to use.</i></h3>
+                <br />
             </div>
         </div>
     </div>
