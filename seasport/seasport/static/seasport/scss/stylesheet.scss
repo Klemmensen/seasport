@@ -80,10 +80,23 @@ div, input, table, th, td, section, article, nav, header, footer {
         position:absolute;
         top:0px;
         right:15px;
-        padding:5px 10px 5px 10px;
+        font-size:14px;
+        padding:0px 20px 3px 20px;
         background:#2B3856;
         color:#fff;
         line-height:25px;
+    }
+    .flag-container {
+        position: absolute;
+        top:0px;
+        right:92px;
+    }
+    img.header-lang-flag {
+        width:30px;
+        height:20px;
+        margin-top:5px;
+        margin-right:5px;
+        cursor: pointer;
     }
 }
 .footer {
