@@ -11,17 +11,27 @@
 <body>
 
 <div class="header">
-    <ul class="wrapper-general">
-        <li>
-            <a href="{% url 'front-home' %}">LOGO HERE..</a>
-            <a href="{% url 'front-home' %}">Home</a>
-            <a href="#">About KayakManager</a>
-            <a href="#">Pricing</a>
-            <a href="#">Contact</a>
-            <a href="{% url 'users-all' %}">Backend Login</a>
-            <div class="clear"></div>
-        </li>
-    </ul>
+    <div class="wrapper-general">
+        <div class="row">
+            <div class="col-xs-3 logo-div">
+                <a href="{% url 'front-home' %}" class="logo-text">
+                    <img src="{% static 'seasport/img/logo-to.png' %}" class="logo" />
+                    KayakManager
+                </a>
+            </div>
+            <div class="col-xs-6 link-div center">
+                <a href="#">About KayakManager</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#">Pricing</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#">Contact</a>
+            </div>
+            <div class="col-xs-3">
+                <a href="{% url 'users-all' %}" class="backend-login">
+                    <span class="glyphicon glyphicon-lock"></span>
+                    Backend Login
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="wrapper wrapper-general">
