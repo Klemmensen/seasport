@@ -3,10 +3,13 @@
 <div class="footer">
     <div class="wrapper-general">
         <div class="row">
-            <div class="col-xs-12 col-md-6 center content">
+            <div class="col-xs-12 col-md-4 center content">
                 <p>&copy; KayakManager 2016</p>
             </div>
-            <div class="col-xs-12 col-md-6 center content">
+            <div class="col-xs-12 col-md-4 center content">
+                <p class="scrool-to-top">- Back to top -</p>
+            </div>
+            <div class="col-xs-12 col-md-4 center content">
                 <a href="#">Terms of use</a>
                 &nbsp;
                 <a href="#">About</a>
@@ -15,9 +18,28 @@
     </div>
 </div>
 
-<div class="scroll-menu"></div>
-
 {% load static %}
+
+<div class="scroll-menu">
+    <div class="wrapper-general">
+        <div class="row">
+            <div class="col-xs-3">
+                <a href="{% url 'front-home' %}" class="logo-text">
+                    <img src="{% static 'seasport/img/logo-to.png' %}" class="logo" />
+                    KayakManager
+                </a>
+            </div>
+            <div class="col-xs-6 center">
+                <a href="{% url 'front-home' %}">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#">About KayakManager</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#">Pricing</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#">Testimonials</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js" integrity="sha256-+h0g0j7qusP72OZaLPCSZ5wjZLnoUUicoxbvrl14WxM=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{% static 'seasport/dist/all.min.js' %}"></script>

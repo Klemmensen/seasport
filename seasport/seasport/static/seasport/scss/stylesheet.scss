@@ -16,6 +16,7 @@ body {
     background-repeat:no-repeat;
     background-attachment:fixed;
     background-size: cover;
+     /* background-position: 60% 0%; */
 }
 
 .clear { clear:both; }
@@ -48,8 +49,8 @@ div, input, table, th, td, section, article, nav, header, footer {
 .wrapper {
     margin-top:20px;
     margin-bottom:20px;
-    background:rgba(255,255,255,.97);
-    min-height:600px;
+    background:rgba(255,255,255,.95);
+    min-height:100px;
 }
 
 .header {
@@ -118,6 +119,15 @@ div, input, table, th, td, section, article, nav, header, footer {
     display:none;
     a {
         line-height:40px;
+        color:#000;
+    }
+    a.logo-text {
+        font-weight:bold;
+    }
+    .logo {
+        height:25px;
+        margin-right:5px;
+        margin-bottom:3px;
     }
 }
 
@@ -127,6 +137,10 @@ div, input, table, th, td, section, article, nav, header, footer {
     background:rgba(255,255,255,.97);
     .content {
         padding:10px 10px 0px 10px;
+    }
+    .scrool-to-top {
+        cursor:pointer;
+        display:inline;
     }
 }
 

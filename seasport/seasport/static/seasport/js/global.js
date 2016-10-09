@@ -5,7 +5,7 @@
 // Show the fixed menu on scroll
 $( window ).scroll( function()
 {
-    if( $( this ).scrollTop() > 200 )
+    if( $( this ).scrollTop() > 70 )
     {
         if( $( '.scroll-menu' ).not( ':visible' ) )
         {
@@ -16,4 +16,10 @@ $( window ).scroll( function()
     {
         $( '.scroll-menu' ).stop( true ).fadeOut();
     }
+});
+
+// Scroll to top
+$( '.scrool-to-top' ).click( function()
+{
+    $( 'body' ).animate( { 'scrollTop' : '0px' }, 800 );
 });
