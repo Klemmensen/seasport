@@ -11,6 +11,10 @@ $( window ).scroll( function()
         {
             $( '.scroll-menu' ).slideDown( 200 );
         }
+        else
+        {
+            return;
+        }
     }
     else
     {

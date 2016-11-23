@@ -47,8 +47,8 @@ div, input, table, th, td, section, article, nav, header, footer {
 }
 
 .wrapper {
-    margin-top:20px;
-    margin-bottom:20px;
+    margin-top:30px;
+    margin-bottom:40px;
     background:rgba(255,255,255,.95);
     min-height:100px;
 }
@@ -96,9 +96,9 @@ div, input, table, th, td, section, article, nav, header, footer {
         right:100px;
     }
     img.header-lang-flag {
-        width:27px;
-        height:18px;
-        margin-top:6px;
+        width:25px;
+        height:16px;
+        margin-top:7px;
         margin-right:5px;
         cursor: pointer;
         opacity:.6;
@@ -146,7 +146,14 @@ div, input, table, th, td, section, article, nav, header, footer {
 
 .home-info-box {
     background:#eee;
-    min-height:200px;
+    .home-feature-list-link {
+        position: absolute;
+        left:35px;
+        bottom:15px;
+    }
+    ul {
+        padding-bottom:15px;
+    }
 }
 .home-top-box {
     background: #2B3856;
@@ -159,13 +166,21 @@ div, input, table, th, td, section, article, nav, header, footer {
         background:rgba(255,255,255,.03);
         margin-top:20px;
         margin-bottom:20px;
-        height:3px;
+        height:1px;
     }
     .image-container {
         background:#fff;
         color:#000;
         min-height:250px;
         width:100%;
+    }
+    .home-top-box-button {
+        display:inline-block;
+        background:rgba(255,255,255,.03);
+        color:#fff;
+        padding:5px 10px 5px 10px;
+        cursor: pointer;
+        margin-bottom:20px;
     }
 }
 .home-import-box {
