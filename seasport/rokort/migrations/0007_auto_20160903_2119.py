@@ -17,31 +17,31 @@ class Migration(migrations.Migration):
             options={'get_latest_by': 'created_at', 'ordering': ['name']},
         ),
         migrations.AlterModelOptions(
-            name='user',
+            name='boat',
             options={'get_latest_by': 'created_at', 'ordering': ['first_name']},
         ),
         migrations.AlterField(
-            model_name='user',
+            model_name='boat',
             name='email',
             field=models.EmailField(max_length=254),
         ),
         migrations.AlterField(
-            model_name='user',
+            model_name='boat',
             name='first_name',
             field=models.CharField(max_length=30),
         ),
         migrations.AlterField(
-            model_name='user',
+            model_name='boat',
             name='last_name',
             field=models.CharField(max_length=30),
         ),
         migrations.AlterField(
-            model_name='user',
+            model_name='boat',
             name='password',
             field=models.CharField(max_length=50),
         ),
         migrations.AlterField(
-            model_name='user',
+            model_name='boat',
             name='zip_code',
             field=models.IntegerField(blank=True, max_length=30, null=True),
         ),

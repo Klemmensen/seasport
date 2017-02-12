@@ -13,12 +13,12 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterField(
-            model_name='user',
+            model_name='boat',
             name='house_floor',
             field=models.IntegerField(blank=True, default=None, null=True),
         ),
         migrations.AlterField(
-            model_name='user',
+            model_name='boat',
             name='house_number',
             field=models.IntegerField(blank=True, default=None, null=True),
         ),

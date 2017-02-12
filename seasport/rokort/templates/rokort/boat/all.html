@@ -1,4 +1,4 @@
-{% extends "rokort/base.html" %}
+{% extends "rokort/base-full-width.html" %}
 
 {% block title %}{{metaTitle}}{% endblock %}
 
@@ -6,24 +6,20 @@
     <h3>{{pageTitle}}</h3>
 {% endblock %}
 
-{% block left-bar %}
-    {% include "rokort/shared/pages-left-nav.html" %}
-{% endblock %}
-
 {% block content %}
 
-    {% for User in Users.all %}
+    {% for Boat in Boats.all %}
         <div style="width:25%; float: left; padding:10px;">
             <div style="background:#EEE; padding:10px;">
-                {{ User.first_name }} {{ User.last_name }}
+                {{ Boat.first_name }} {{ Boat.last_name }}
                 <br />
-                ID: {{ User.id }}
+                ID: {{ Boat.id }}
                 <br />
                 Opdateret:
                 <br />
-                D. {{ User.updated_at|date:"d M Y, H:i:s" }}
+                D. {{ Boat.updated_at|date:"d M Y, H:i:s" }}
                 <br />
-                <a href="{% url 'user-edit' id=User.id %}">Edit</a>
+                <a href="{% url 'boat-edit' id=Boat.id %}">Edit</a>
                 <br />
             </div>
         </div>

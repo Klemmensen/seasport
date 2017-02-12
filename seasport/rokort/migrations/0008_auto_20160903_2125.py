@@ -28,17 +28,17 @@ class Migration(migrations.Migration):
             field=models.CharField(blank=True, max_length=15, null=True),
         ),
         migrations.AlterField(
-            model_name='user',
+            model_name='boat',
             name='house_floor',
             field=models.IntegerField(blank=True, default=0, null=True),
         ),
         migrations.AlterField(
-            model_name='user',
+            model_name='boat',
             name='house_number',
             field=models.IntegerField(blank=True, default=0, null=True),
         ),
         migrations.AlterField(
-            model_name='user',
+            model_name='boat',
             name='zip_code',
             field=models.IntegerField(blank=True, null=True),
         ),

@@ -13,12 +13,17 @@
 <div class="header">
     <ul>
         <li>
-            <a href="{% url 'home' %}" class="home">Dashboard</a>
-            <a href="{% url 'users-all' %}">Alle brugere</a>
-            <a href="#">Design</a>
-            <a href="#">Plugins</a>
-            <a href="#">Settings</a>
-            <a href="#">Users</a>
+            {% url 'home' as url %}
+            <a href="{{ url }}" {% if request.path == url %}class="active"{% endif %}>Dashboard</a>
+
+            {% url 'boats-all' as url %}
+            <a href="{{ url }}" {% if request.path == url %}class="active"{% endif %}>Båd oversigt</a>
+
+            <a href="#">Registreringer</a>
+
+            <a href="#">Arrangementer</a>
+
+            <a href="#">Min profil</a>
             <div class="clear"></div>
         </li>
     </ul>

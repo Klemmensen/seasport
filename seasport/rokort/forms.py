@@ -2,10 +2,10 @@ from django import forms
 from . import models
 
 
-class UserForm(forms.ModelForm):
+class BoatForm(forms.ModelForm):
 
     class Meta:
-        model = models.User
+        model = models.Boat
         fields = ['first_name', 'last_name', 'email']
         error_messages = \
         {

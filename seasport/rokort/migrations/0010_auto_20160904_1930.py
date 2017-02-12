@@ -13,12 +13,12 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterModelOptions(
-            name='user',
+            name='boat',
             options={'get_latest_by': 'created_at', 'ordering': ['-created_at', 'first_name']},
         ),
         migrations.AddField(
-            model_name='user',
+            model_name='boat',
             name='user_type',
-            field=models.CharField(choices=[('club_admin', 'Administrator'), ('club_user', 'User'), ('system_user', 'System user')], default='club_user', max_length=30),
+            field=models.CharField(choices=[('club_admin', 'Administrator'), ('club_user', 'User'), ('system_user', 'System boat')], default='club_user', max_length=30),
         ),
     ]

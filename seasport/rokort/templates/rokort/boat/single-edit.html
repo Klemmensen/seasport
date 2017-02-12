@@ -1,0 +1,13 @@
+{% extends "rokort/base-full-width.html" %}
+
+{% block title %}{{metaTitle}}{% endblock %}
+
+{% block content-title %}
+    <h3>{{pageTitle}}</h3>
+{% endblock %}
+
+{% block content %}
+    <h3>Edit: {{ Boat.first_name }} {{ Boat.last_name }}</h3>
+    <hr />
+    {% include "rokort/forms/boat-form-edit.html" %}
+{% endblock %}

@@ -33,22 +33,22 @@ class Migration(migrations.Migration):
             field=models.IntegerField(default=0),
         ),
         migrations.AlterField(
-            model_name='user',
+            model_name='boat',
             name='house_floor',
             field=models.IntegerField(),
         ),
         migrations.AlterField(
-            model_name='user',
+            model_name='boat',
             name='house_number',
             field=models.IntegerField(),
         ),
         migrations.AlterField(
-            model_name='user',
+            model_name='boat',
             name='phone',
             field=models.IntegerField(blank=True, null=True),
         ),
         migrations.AlterField(
-            model_name='user',
+            model_name='boat',
             name='zip_code',
             field=models.IntegerField(),
         ),

@@ -21,7 +21,7 @@ class Club(models.Model):
         get_latest_by = 'created_at'
 
 
-class User(models.Model):
+class Boat(models.Model):
 
     CLUB_ADMIN = 'club_admin'
     CLUB_USER = 'club_user'

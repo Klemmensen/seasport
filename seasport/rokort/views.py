@@ -15,48 +15,48 @@ class Home(TemplateView):
         return render(request, self.template_name, self.context)
 
 
-class User(TemplateView):
+class Boats(TemplateView):
 
-    template_name = 'rokort/user/single-view.html'
-    Users = models.User.objects.all()
-    context = {'metaTitle': 'Admin - Users Overview', 'pageTitle':'Admin - All users', 'Users': Users}
+    template_name = 'rokort/boat/single-view.html'
+    Boats = models.Boat.objects.all()
+    context = {'metaTitle': 'Admin - Users Overview', 'pageTitle':'Admin - All boats', 'Boats': Boats}
 
     def get(self, request):
         return render(request, self.template_name, self.context)
 
 
-class UserEdit(TemplateView):
+class BoatsEdit(TemplateView):
 
-    template_name = 'rokort/user/single-edit.html'
-    context = {'metaTitle': 'Admin - User single edit page', 'pageTitle':'Admin - User single edit page'}
+    template_name = 'rokort/boat/single-edit.html'
+    context = {'metaTitle': 'Admin - User single edit page', 'pageTitle':'Admin - Boat single edit page'}
 
     def get(self, request, id):
         try:
-            self.context['User'] = models.User.objects.get(pk=id)
-            self.context['UserForm'] = forms.UserForm(instance=self.context['User'])
+            self.context['Boat'] = models.Boat.objects.get(pk=id)
+            self.context['BoatForm'] = forms.BoatForm(instance=self.context['Boat'])
             self.context['Valid'] = 0
             return render(request, self.template_name, self.context)
-        except models.User.DoesNotExist:
-            return redirect('users-all')
+        except models.Boat.DoesNotExist:
+            return redirect('boats-all')
 
     def post(self, request, id):
-        userobject = models.User.objects.get(pk=id)
-        userform = forms.UserForm(request.POST, instance=userobject)
-        self.context['UserForm'] = userform
+        boat_object = models.Boat.objects.get(pk=id)
+        boat_form = forms.BoatForm(request.POST, instance=boat_object)
+        self.context['UserForm'] = boat_form
 
-        if userform.is_valid():
-            userform.save()
+        if boat_form.is_valid():
+            boat_form.save()
             self.context['Valid'] = 1
-            self.context['SuccessMessage'] = 'Din profil er opdateret'
+            self.context['SuccessMessage'] = 'Bådens data er opdateret'
 
         return render(request, self.template_name, self.context)
 
 
-class UsersAll(TemplateView):
+class BoatsAll(TemplateView):
 
-    template_name = 'rokort/user/all.html'
-    context = {'metaTitle': 'Admin - Users Overview', 'pageTitle': 'Admin - All users'}
+    template_name = 'rokort/boat/all.html'
+    context = {'metaTitle': 'Admin - Users Overview', 'pageTitle': 'Admin - All boats'}
 
     def get(self, request):
-        self.context['Users'] = models.User.objects.all()
+        self.context['Boats'] = models.Boat.objects.all()
         return render(request, self.template_name, self.context)
