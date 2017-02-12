@@ -50,6 +50,10 @@ div, input, table, th, td, section, article, nav, header, footer {
     padding-top:15px;
 }
 
+.boat-wrapper:nth-child(4n+1){
+    clear:left
+}
+
 /* Buttons */
 .edit-link, .edit-link:hover {
     text-decoration:none;

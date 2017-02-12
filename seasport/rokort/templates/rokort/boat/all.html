@@ -10,7 +10,7 @@
 {% block content %}
 
     {% for Boat in Boats.all %}
-        <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="col-xs-12 col-sm-4 col-md-3 boat-wrapper">
             <div class="padding-box" style="background:#EEE; margin-top:30px;">
                 <img src="{% static '/' %}{{ Boat.image }}" style="width:100%;" />
                 <table class="table-general">

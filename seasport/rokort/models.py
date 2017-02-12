@@ -1,3 +1,4 @@
+from django.core.validators import MinLengthValidator
 from django.db import models
 
 
@@ -25,7 +26,7 @@ class Club(models.Model):
 class Boat(models.Model):
 
     club = models.ForeignKey(Club, on_delete=models.CASCADE, db_index=True)
-    name = models.CharField(max_length=80, default='')
+    name = models.CharField(max_length=80, default='', validators=[MinLengthValidator(3, message='Mindst 3 bogstaver..')])
     slug_name = models.CharField(max_length=80, default='')
     image = models.ImageField(upload_to='static/rokort/img/uploads/clubs/aarhus_kano_og_kajak/boats/', default='', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)

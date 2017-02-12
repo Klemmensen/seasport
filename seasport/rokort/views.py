@@ -31,24 +31,26 @@ class BoatsEdit(TemplateView):
     context = {'metaTitle': 'KayakManager - Edit boat', 'pageTitle':'Edit boat'}
 
     def get(self, request, id):
-        self.context['Valid'] = 0
+        self.context['error'] = False
         try:
-            self.context['BoatForm'] = forms.BoatForm(instance=models.Boat.objects.get(pk=id))
-
+            self.context['boat'] = models.Boat.objects.get(pk=id)
             return render(request, self.template_name, self.context)
         except models.Boat.DoesNotExist:
             return redirect('boats-all')
 
     def post(self, request, id):
-        form = forms.BoatForm(request.POST, request.FILES, instance=models.Boat.objects.get(pk=id))
-        if form.is_valid():
-            boat = form.save(commit=False)
-            boat.slug_name = request.POST['name'].lower().replace( 'æ', 'ae' ).replace( 'ø', 'oe' ).replace( 'å', 'aa' ).replace( ' ', '-' )
+        status = forms.BoatForm.validate(self, request)
+        if status['status']:
+            boat = models.Boat.objects.get(pk=id)
+            boat.slug_name = request.POST.get('name').strip().lower().replace( 'æ', 'ae' ).replace( 'ø', 'oe' ).replace( 'å', 'aa' ).replace( ' ', '-' )
+            boat.name = request.POST.get('name').strip()
             boat.save()
 
-            self.context['BoatForm'] = forms.BoatForm(instance=models.Boat.objects.get(pk=id))
-            self.context['Valid'] = 1
-            self.context['SuccessMessage'] = 'Bådens data er opdateret'
+            self.context['error'] = False
+            self.context['success_message'] = status['message']
+        else:
+            self.context['error_messages'] = status['error_messages']
+            self.context['error'] = True
 
         return render(request, self.template_name, self.context)
 
