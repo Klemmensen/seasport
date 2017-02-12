@@ -1,15 +1,17 @@
 {% include "rokort/shared/header.html" %}
 
-<div class="left-bar">
-    {% block left-bar %}{% endblock %}
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="col-xs-12 padding-box-top">
+            {% block content-title %}{% endblock %}
+        </div>
+    </div>
 </div>
 
-<div class="content-title">
-    {% block content-title %}{% endblock %}
-</div>
-
-<div class="content">
-    {% block content %}{% endblock %}
+<div class="container-fluid">
+    <div class="row-fluid">
+        {% block content %}{% endblock %}
+    </div>
 </div>
 
 {% include "rokort/shared/footer.html" %}

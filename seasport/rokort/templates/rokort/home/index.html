@@ -1,4 +1,4 @@
-{% extends "rokort/base-full-width.html" %}
+{% extends "rokort/base.html" %}
 
 {% block title %}{{metaTitle}}{% endblock %}
 
@@ -10,6 +10,9 @@
 <style>
 ul.ul {margin-left:30px;}
 </style>
+
+<div class="col-xs-12 padding-box">
+
     <h3>Funktionalitet på administrator niveau (club_admin)</h3>
     <hr />
     <ul class="ul">
@@ -86,5 +89,6 @@ ul.ul {margin-left:30px;}
         </li>
         <li>Skrive besked til andre klubber hvis denne mulighed er 'ticked of' i settings</li>
     </ul>
+</div>
 
 {% endblock %}

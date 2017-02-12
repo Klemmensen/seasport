@@ -1,13 +1,16 @@
-{% extends "rokort/base-full-width.html" %}
+{% extends "rokort/base.html" %}
 
-{% block title %}{{metaTitle}}{% endblock %}
+{% block title %}
+    {{metaTitle}}
+{% endblock %}
 
 {% block content-title %}
-    <h3>{{pageTitle}}</h3>
+    <h3>{{pageTitle}} : {{ BoatForm.instance.name }}</h3>
+    <hr />
 {% endblock %}
 
 {% block content %}
-    <h3>Edit: {{ Boat.first_name }} {{ Boat.last_name }}</h3>
-    <hr />
-    {% include "rokort/forms/boat-form-edit.html" %}
+    <div class="col-xs-12 padding-box">
+        {% include "rokort/forms/boat-form-edit.html" %}
+    </div>
 {% endblock %}

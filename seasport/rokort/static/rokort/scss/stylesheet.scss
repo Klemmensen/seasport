@@ -43,14 +43,22 @@ div, input, table, th, td, section, article, nav, header, footer {
     }
 }
 
-.content-title-full-width {
-    width:100%;
-    padding:15px !important;
-    text-align: center;
+.padding-box {
+    padding:15px;
 }
-.content-full-width {
-    width:100%;
-    padding:15px !important;
+.padding-box-top {
+    padding-top:15px;
+}
+
+/* Buttons */
+.edit-link, .edit-link:hover {
+    text-decoration:none;
+    display:inline-block;
+    color:#FFF;
+    background:#3366CC;
+    padding:0px 10px 0px 10px;
+    font-size:15px;
+    border-radius:3px;
 }
 
 /* Bootstrap overrides */
@@ -91,38 +99,9 @@ select {
     width:100%;
 }
 
-.select-pages-filter {
-    width:200px;
-}
-.input-pages-search {
-    height:40px;
-}
-
 /* Tables */
 .table-general {
     width:100%;
-    margin-top:15px !important;
+    margin-top:5px;
     border-collapse: collapse;
-}
-.table-general thead {
-    background:#eee;
-    border:1px solid #eee;
-}
-.table-general thead tr th {
-    height:40px;
-    padding:4px !important;
-    font-weight:lighter;
-}
-.select-th {
-   width:230px !important;
-}
-.table-general tbody tr td {
-    text-align:center;
-    padding:4px !important;
-    font-weight:lighter;
-    border:1px solid #eee;
-}
-
-.table-pages {
-
 }

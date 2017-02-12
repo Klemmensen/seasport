@@ -1,4 +1,5 @@
 {% load widget_tweaks %}
+{% load static %}
 
 {% if BoatForm.errors %}
     {% for key, value in BoatForm.errors.items %}
@@ -13,19 +14,21 @@
     <div class="alert alert-success" role="alert"><p>{{ SuccessMessage }}</p></div>
 {% endif %}
 
-<form method="POST" name="update-user-form" novalidate>
+<form method="POST" name="update-boat-form" novalidate enctype="multipart/form-data">
     {% csrf_token %}
     <div class="input-wrapper">
-        <label for="{{ BoatForm.first_name.id_for_label }}">Fornavn:</label>
-        {{ BoatForm.first_name|add_error_class:"error-border" }}
+        <label for="{{ BoatForm.name.id_for_label }}">Navn på båd:</label>
+        {{ BoatForm.name|add_error_class:"error-border" }}
     </div>
-    <div class="input-wrapper">
-        <label for="{{ BoatForm.last_name.id_for_label }}">Efternavn:</label>
-        {{ BoatForm.last_name|add_error_class:"error-border" }}
-    </div>
-    <div class="input-wrapper">
-        <label for="{{ BoatForm.email.id_for_label }}">Email:</label>
-        {{ BoatForm.email|add_error_class:"error-border" }}
-    </div>
+    {% if BoatForm.image %}
+        <div class="input-wrapper">
+            <label for="{{ BoatForm.image.id_for_label }}">Upload et billede af båden:</label>
+            {{ BoatForm.image|add_error_class:"error-border" }}
+        </div>
+    {% endif %}
     <input type="submit" value="Submit" />
+    {% if BoatForm.instance.image.url != '' %}
+        <br />
+        <img src="{% static '/' %}{{ BoatForm.instance.image.url }}" style="width:25%; margin-top:30px;" />
+    {% endif %}
 </form>

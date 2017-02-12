@@ -19,7 +19,7 @@ class Boats(TemplateView):
 
     template_name = 'rokort/boat/single-view.html'
     Boats = models.Boat.objects.all()
-    context = {'metaTitle': 'Admin - Users Overview', 'pageTitle':'Admin - All boats', 'Boats': Boats}
+    context = {'metaTitle': 'KayakManager - Bådoversigt', 'pageTitle':'Båd oversigt', 'Boats': Boats}
 
     def get(self, request):
         return render(request, self.template_name, self.context)
@@ -28,24 +28,25 @@ class Boats(TemplateView):
 class BoatsEdit(TemplateView):
 
     template_name = 'rokort/boat/single-edit.html'
-    context = {'metaTitle': 'Admin - User single edit page', 'pageTitle':'Admin - Boat single edit page'}
+    context = {'metaTitle': 'KayakManager - Edit boat', 'pageTitle':'Edit boat'}
 
     def get(self, request, id):
+        self.context['Valid'] = 0
         try:
-            self.context['Boat'] = models.Boat.objects.get(pk=id)
-            self.context['BoatForm'] = forms.BoatForm(instance=self.context['Boat'])
-            self.context['Valid'] = 0
+            self.context['BoatForm'] = forms.BoatForm(instance=models.Boat.objects.get(pk=id))
+
             return render(request, self.template_name, self.context)
         except models.Boat.DoesNotExist:
             return redirect('boats-all')
 
     def post(self, request, id):
-        boat_object = models.Boat.objects.get(pk=id)
-        boat_form = forms.BoatForm(request.POST, instance=boat_object)
-        self.context['UserForm'] = boat_form
+        form = forms.BoatForm(request.POST, request.FILES, instance=models.Boat.objects.get(pk=id))
+        if form.is_valid():
+            boat = form.save(commit=False)
+            boat.slug_name = request.POST['name'].lower().replace( 'æ', 'ae' ).replace( 'ø', 'oe' ).replace( 'å', 'aa' ).replace( ' ', '-' )
+            boat.save()
 
-        if boat_form.is_valid():
-            boat_form.save()
+            self.context['BoatForm'] = forms.BoatForm(instance=models.Boat.objects.get(pk=id))
             self.context['Valid'] = 1
             self.context['SuccessMessage'] = 'Bådens data er opdateret'
 
@@ -55,7 +56,7 @@ class BoatsEdit(TemplateView):
 class BoatsAll(TemplateView):
 
     template_name = 'rokort/boat/all.html'
-    context = {'metaTitle': 'Admin - Users Overview', 'pageTitle': 'Admin - All boats'}
+    context = {'metaTitle': 'Admin - Boat Overview', 'pageTitle': 'Admin - All boats'}
 
     def get(self, request):
         self.context['Boats'] = models.Boat.objects.all()
