@@ -50,10 +50,6 @@ div, input, table, th, td, section, article, nav, header, footer {
     padding-top:15px;
 }
 
-.boat-wrapper:nth-child(4n+1){
-    clear:left
-}
-
 /* Buttons */
 .edit-link, .edit-link:hover {
     text-decoration:none;
@@ -108,4 +104,37 @@ select {
     width:100%;
     margin-top:5px;
     border-collapse: collapse;
+}
+
+
+/* Media Queries */
+/* Large Devices, Wide Screens */
+@media (min-width:993px) {
+    .boat-wrapper:nth-child(4n+1){
+        clear:left;
+    }
+}
+/* Medium Devices, Desktops */
+@media (min-width:769px) and (max-width : 992px) {
+    .boat-wrapper:nth-child(3n+1){
+        clear:left;
+    }
+}
+/* Small Devices, Tablets */
+@media (min-width:481px) and (max-width : 768px) {
+    .boat-wrapper:nth-child(2n+1){
+        clear:left;
+    }
+}
+/* Extra Small Devices, Phones */
+@media (min-width:321px) and (max-width : 480px) {
+    .boat-wrapper:nth-child(1n+1){
+        clear:left;
+    }
+}
+/* Custom, iPhone Retina */
+@media (max-width : 320px) {
+    .boat-wrapper:nth-child(1n+1){
+        clear:left;
+    }
 }
