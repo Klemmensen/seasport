@@ -44,8 +44,11 @@ class BoatsEdit(TemplateView):
             boat = models.Boat.objects.get(pk=id)
             boat.slug_name = request.POST.get('name').strip().lower().replace( 'æ', 'ae' ).replace( 'ø', 'oe' ).replace( 'å', 'aa' ).replace( ' ', '-' )
             boat.name = request.POST.get('name').strip()
+            if request.FILES.get('image'):
+                boat.image = request.FILES.get('image')
             boat.save()
 
+            self.context['files'] = request.FILES
             self.context['error'] = False
             self.context['success_message'] = status['message']
         else:

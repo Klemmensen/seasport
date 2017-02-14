@@ -17,8 +17,16 @@
     {% csrf_token %}
     <div class="input-wrapper">
         <label for="name">Navn på båd:</label>
-        <input id="name" name="name" placeholder="navn på båd.." value="{% if request.POST %}{{ request.POST.name.strip }}{% else %}{{ boat.name.strip }}{% endif %}" />
+        <input id="name" name="name" type="text" placeholder="navn på båd.." value="{% if request.POST %}{{ request.POST.name.strip }}{% else %}{{ boat.name.strip }}{% endif %}" />
     </div>
+    <div class="input-wrapper">
+        <label for="image">Billede af båd:</label>
+        <input id="image" name="image" type="file" />
+    </div>
+    {% if boat.image %}
+        <img src="{{ static }}/{{ boat.image }}" style="width:30%" />
+        <br /><br />
+    {% endif %}
     <input type="hidden" value="{{ boat.id }}" name="id" />
     <input type="submit" value="Submit" />
 </form>

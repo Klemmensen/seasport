@@ -3,35 +3,60 @@
 
 {% block title %}{{metaTitle}}{% endblock %}
 
-{% block content-title %}
+{% block content-top %}
     <h3>{{ Boats.0.club.name }} - Bådoversigt</h3>
+    <hr />
+    <div class="col-xs-12 col-md-3">
+        <div class="padding-box">
+            <div style="width:20px; height:2px; margin-bottom:3px; background:mediumspringgreen; display:inline-block;"></div>
+            <p style="display:inline;">Ledig</p>
+            &nbsp;|&nbsp;
+            <div style="width:20px; height:2px; margin-bottom:3px; background:tomato; display:inline-block;"></div>
+            <p style="display:inline;">Optaget</p>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <div class="padding-box" style="text-align:center;">
+            <select name="boat_type">
+                <option value="">Alle båd typer</option>
+                <option value="">Extra brede</option>
+                <option value="">1 Personers</option>
+                <option value="">2 Personers</option>
+            </select>&nbsp;
+            <button class="btn">Vis kun ledige</button>&nbsp;
+            <button class="btn">Se bookinger</button>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-3">
+        <div class="padding-box pull-right">
+            <img src="/static/rokort/img/list-icon.png" style="width:25px; height:20px; cursor:pointer;" />
+            Tabel&nbsp;
+            <img src="/static/rokort/img/camera-icon.png" style="width:30px; height:30px; cursor:pointer;" />
+            Billeder
+        </div>
+    </div>
+    <div style="clear: both;"></div>
 {% endblock %}
 
 {% block content %}
 
     {% for Boat in Boats.all %}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 boat-wrapper">
-            <div class="padding-box" style="background:#EEE; margin-top:30px;">
-                <img src="{% static '/' %}{{ Boat.image }}" style="width:100%;" />
+            <div class="padding-box">
+
+                <div class="boat-image-wrapper">
+                    <img src="{{ static }}/{{ Boat.image }}" />
+                    <div class="padding-box">
+                        <a href="{% url 'boat-edit' id=Boat.id %}">Rediger båd data</a>
+                    </div>
+                </div>
+
                 <table class="table-general">
                     <tr>
-                        <td>Navn:</td>
                         <td>{{ Boat.name }}</td>
+                        <td align="right"></td>
                     </tr>
-                    <tr>
-                        <td>Ledig:</td>
-                        <td>Ja</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <a class="edit-link pull-right" href="{% url 'boat-edit' id=Boat.id %}">Opdater båd</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <small><i>Senest opdateret: D. {{ Boat.updated_at|date:"d M Y, H:i:s" }}</i></small>
-                        </td>
-                    </tr>
+                    <!-- {{ Boat.updated_at|date:"d M Y, H:i:s" }} -->
                 </table>
             </div>
         </div>

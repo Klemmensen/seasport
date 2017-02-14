@@ -10,11 +10,14 @@
 </head>
 <body>
 
+<div class="header-top">
+
+</div>
 <div class="header">
     <ul>
         <li>
             {% url 'home' as url %}
-            <a href="{{ url }}" {% if request.path == url %}class="active"{% endif %}>Dashboard</a>
+            <a class="home" href="{{ url }}" {% if request.path == url %}class="active"{% endif %}>Dashboard</a>
 
             {% url 'boats-all' as url %}
             <a href="{{ url }}" {% if request.path == url %}class="active"{% endif %}>Båd oversigt</a>
