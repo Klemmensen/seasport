@@ -11,22 +11,33 @@
 <body>
 
 <div class="header-top">
-
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-xs-12">
+                <a href="#">Kontakt</a>
+                <a href="#">Min Profil</a>
+                <a href="#">Indstillinger</a>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="header">
     <ul>
         <li>
             {% url 'home' as url %}
-            <a class="home" href="{{ url }}" {% if request.path == url %}class="active"{% endif %}>Dashboard</a>
+            <a class="home" href="{{ url }}" {% if request.path == url %}class="active"{% endif %}>
+                <img src="/static/seasport/img/logo-to.png" />
+                <p>KayakManager</p>
+            </a>
 
             {% url 'boats-all' as url %}
             <a href="{{ url }}" {% if request.path == url %}class="active"{% endif %}>Båd oversigt</a>
 
-            <a href="#">Registreringer</a>
+            <a href="#">Rokort</a>
 
-            <a href="#">Arrangementer</a>
+            <a href="#">Events</a>
 
-            <a href="#">Min profil</a>
+            <a href="#">Abbonement</a>
             <div class="clear"></div>
         </li>
     </ul>

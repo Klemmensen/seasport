@@ -19,8 +19,16 @@ div, input, table, th, td, section, article, nav, header, footer {
 
 .header-top {
     background:#00102a;
-    color:#FFF;
-    height:25px;
+    height:30px;
+    a {
+        text-decoration:none;
+        float:right;
+        color:#2773b2;
+        text-shadow:1px 1px 1px #000;
+        font-size:13px;
+        line-height:30px;
+        margin-left:15px;
+    }
 }
 .header {
     width:100%;
@@ -42,14 +50,26 @@ div, input, table, th, td, section, article, nav, header, footer {
         transition: background-color 0.5s ease;
     }
     ul li a.home {
+        position:relative;
         background:#00102a;
         color:#FFF;
+        img {
+            height:40px;
+            margin-top:15px;
+            margin-left:35px;
+            float:left;
+            position:relative;
+            -webkit-filter: invert(100%); filter: invert(100%);
+        }
+        p {
+            font-weight:bold;
+        }
     }
     ul li a:not(.home):hover {
         background:#2773b2;
         color:#FFF;
     }
-    ul li a.active:not.home {
+    ul li a:not(.home).active {
         background:#2773b2;
         color:#FFF;
     }
