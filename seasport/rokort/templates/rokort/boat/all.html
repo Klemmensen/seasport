@@ -4,35 +4,43 @@
 {% block title %}{{metaTitle}}{% endblock %}
 
 {% block content-top %}
-    <h3>{{ Boats.0.club.name }} - Bådoversigt</h3>
+
+    <div class="col-xs-12 col-md-9 text-xs-center text-sm-center text-md-left text-lg-left">
+        <h3>{{ Boats.0.club.name }} - Bådoversigt</h3>
+    </div>
+    <div class="col-xs-12 col-md-3 text-xs-center text-sm-center text-md-right text-lg-right">
+        <a href="#">+ Opret ny båd</a><br /><br />
+    </div>
+    <div class="clear"></div>
+
     <hr />
-    <div class="col-xs-12 col-md-3">
-        <div class="padding-box">
-            <div style="width:20px; height:2px; margin-bottom:3px; background:mediumspringgreen; display:inline-block;"></div>
-            <p style="display:inline;">Ledig</p>
+
+    <div class="col-xs-12 col-lg-3 fixed-content">
+        <div class="padding-box text-xs-center text-sm-center text-md-center text-lg-left">
+            <div class="availability-hint available"></div>
+            <p style="display:inline;">Ledig nu</p>
             &nbsp;|&nbsp;
-            <div style="width:20px; height:2px; margin-bottom:3px; background:tomato; display:inline-block;"></div>
+            <div class="availability-hint booked"></div>
             <p style="display:inline;">Optaget</p>
         </div>
     </div>
-    <div class="col-xs-12 col-md-6">
-        <div class="padding-box" style="text-align:center;">
+    <div class="col-xs-12 col-lg-6 fixed-content">
+        <div class="padding-box text-xs-center">
             <select name="boat_type">
                 <option value="">Alle båd typer</option>
-                <option value="">Extra brede</option>
-                <option value="">1 Personers</option>
-                <option value="">2 Personers</option>
+                <option value="">Kajak</option>
+                <option value="">Kano</option>
             </select>&nbsp;
-            <button class="btn">Vis ledige</button>&nbsp;
-            <button class="btn">Se bookinger</button>
+            <button class="btn" data-identifier="a" data-first="Vis ledige" data-second="Vis alle">Vis ledige</button>&nbsp;
+            <button class="btn" data-identifier="b" data-first="Tidligere bookinger" data-second="Alle">Tidligere bookinger</button>
         </div>
     </div>
-    <div class="col-xs-12 col-md-3">
-        <div class="padding-box pull-right">
-            <img src="/static/rokort/img/list-icon.png" style="width:25px; height:20px; cursor:pointer;" />
-            Tabel&nbsp;
+    <div class="col-xs-12 col-lg-3 fixed-content">
+        <div class="padding-box text-xs-center text-sm-center text-md-center text-lg-right">
+            <img src="/static/rokort/img/list-icon.png" style="width:25px; height:17px; cursor:pointer;" />
+            Liste&nbsp;&nbsp;
             <img src="/static/rokort/img/camera-icon.png" style="width:30px; height:30px; cursor:pointer;" />
-            Billeder
+            <b>Billeder</b>
         </div>
     </div>
     <div style="clear: both;"></div>
@@ -41,7 +49,7 @@
 {% block content %}
 
     {% for Boat in Boats.all %}
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 boat-wrapper">
+        <div class="col-xs-12 col-sm-6 col-lg-4 boat-wrapper">
             <div class="padding-box">
 
                 <div class="boat-image-wrapper">
@@ -54,7 +62,11 @@
                 <table class="table-general">
                     <tr>
                         <td>{{ Boat.name }}</td>
-                        <td align="right"></td>
+                        <td align="right">
+                            <a href="#">
+                                <img src="/static/rokort/img/calender-icon.png" title="Book {{ Boat.name }}" style="width:25px; height:20px; vertical-align:top; cursor:pointer;" />
+                            </a>
+                        </td>
                     </tr>
                     <!-- {{ Boat.updated_at|date:"d M Y, H:i:s" }} -->
                 </table>
