@@ -40,3 +40,29 @@ $(window).on( 'scroll', function()
         $( '.fixed-nav' ).stop().fadeOut();
     }
 });
+
+
+// boat-overview-table
+$( '.boat-wrapper' ).each( function( index, element )
+{
+    var image   = $( this ).data( 'image' );
+    var editUrl = $( this ).data( 'editurl' );
+    var name    = $( this ).data( 'name' );
+
+    $( '.boat-overview-table-template tbody' ).append(
+        '<tr class="boat-overview-tr available">'
+        + '<td><img src="' + image + '" /></td>'
+        + '<td><p>' + name + '</p></td>'
+        + '<td><img src="/static/rokort/img/calender-icon.png" title="Book ' + name + '" style="width:25px; height:20px; vertical-align:top; cursor:pointer;" /></td>'
+        + '<td><a href="' + editUrl + '">Rediger båd</a></td>'
+        + '</tr>'
+    );
+
+});
+
+$( 'body' ).on( 'click', '.view-toggler', function()
+{
+    $( '.' + $( this ).data( 'hide' ) ).fadeOut();
+
+    $( '.' + $( this ).data( 'show' ) ).fadeIn();
+});
