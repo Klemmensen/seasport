@@ -31,13 +31,13 @@ $( function()
 
 $(window).on( 'scroll', function()
 {
-    if ($(window).scrollTop() >= 250 )
+    if ($(window).scrollTop() >= 205 )
     {
-        $( '.fixed-nav' ).stop().fadeIn();
+        $( '.fixed-nav' ).stop().show();
     }
     else
     {
-        $( '.fixed-nav' ).stop().fadeOut();
+        $( '.fixed-nav' ).stop().hide();
     }
 });
 
@@ -62,7 +62,7 @@ $( '.boat-wrapper' ).each( function( index, element )
 
 $( 'body' ).on( 'click', '.view-toggler', function()
 {
-    $( '.' + $( this ).data( 'hide' ) ).fadeOut();
-
-    $( '.' + $( this ).data( 'show' ) ).fadeIn();
+    $( '.' + $( this ).data( 'hide' ) ).hide();
+    $( '.' + $( this ).data( 'show' ) ).show();
 });
+
