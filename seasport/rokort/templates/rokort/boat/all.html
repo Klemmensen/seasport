@@ -26,12 +26,31 @@
     </div>
     <div class="col-xs-12 col-lg-6 fixed-content">
         <div class="padding-box text-xs-center">
-            <select name="boat_type">
-                <option value="">Alle båd typer</option>
-                <option value="">Kajak</option>
-                <option value="">Kano</option>
-            </select>&nbsp;
-            <button class="btn" data-identifier="a" data-first="Vis ledige" data-second="Vis alle">Vis ledige</button>&nbsp;
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Alle båd typer <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><input type="checkbox" value="all" checked /> Alle båd typer</li>
+                    <li><b>Kajakker</b></li>
+                    <li class="multi-select-list-item"><input class="check-boat" type="checkbox" value="Havkajak" checked /> Havkajak</li>
+                    <li class="multi-select-list-item"><input class="check-boat" type="checkbox" value="Turkajak" checked /> Turkajak</li>
+                    <li class="multi-select-list-item"><input class="check-boat" type="checkbox" value="Kapkajak" checked /> Kapkajak</li>
+                    <li class="multi-select-list-item"><input class="check-boat" type="checkbox" value="Fritidskajak" checked /> Fritidskajak</li>
+                    <li class="multi-select-list-item"><input class="check-boat" type="checkbox" value="Sit on Top kajak" checked /> Sit on Top kajak</li>
+                    <li class="multi-select-list-item"><input class="check-boat" type="checkbox" value="Fiskekajak" checked /> Fiskekajak</li>
+                    <li class="multi-select-list-item"><input class="check-boat" type="checkbox" value="Surfkajak" checked /> Surfkajak</li>
+                    <li class="multi-select-list-item"><input class="check-boat" type="checkbox" value="Surf Ski kajak" checked /> Surf Ski kajak</li>
+                    <li class="multi-select-list-item"><input class="check-boat" type="checkbox" value="Wave Ski kajak" checked /> Wave Ski kajak</li>
+                    <li class="multi-select-list-item"><input class="check-boat" type="checkbox" value="White Water kajak" checked /> White Water kajak</li>
+                    <li class="multi-select-list-item"><input class="check-boat" type="checkbox" value="Slalom kajak" checked /> Slalom kajak</li>
+                    <li class="multi-select-list-item"><input class="check-boat" type="checkbox" value="Polo-kajak" checked /> Polo-kajak</li>
+                    <li><b>Kanoer</b></li>
+                    <li class="multi-select-list-item"><input class="check-boat" type="checkbox" value="Kano" checked /> Kano</li>
+                    <li class="multi-select-list-item"><input class="check-boat" type="checkbox" value="Foss kano" checked /> Foss kano</li>
+                </ul>
+            </div>
+            <button class="btn" data-identifier="a" data-first="Vis ledige" data-second="Vis alle">Vis ledige</button>
             <button class="btn" data-identifier="b" data-first="Tidligere bookinger" data-second="Alle">Tidligere bookinger</button>
         </div>
     </div>
