@@ -1,5 +1,7 @@
-$( 'body' ).on( 'click', '.btn', function(){
-    $( this ).toggleClass( 'btn-active' );
+$( 'body' ).on( 'click', '.btn', function()
+{
+    if( !$( this ).hasClass( 'dropdown-toggle' ) )
+        $( this ).toggleClass( 'btn-active' );
 });
 
 jQuery.fn.extend({
@@ -60,9 +62,40 @@ $( 'body' ).on( 'click', '.view-toggler', function()
     $( '.' + $( this ).data( 'show' ) ).show();
 });
 
+// Keep the bootstrap btn drop down list open when clicking elements inside of it
+$( '.btn-group' ).on( 'click', function( e )
+{
+    if( $( this ).hasClass( 'open' ) )
+    {
+        e.stopPropagation();
+    }
+});
+
 // Handle multi boat type select list
 $( 'body' ).on( 'change', '.dropdown-menu li input[type=checkbox]', function()
 {
+    // Check or uncheck all if "all" checkbox has changed
+    if( $( this ).val() === 'all' )
+    {
+        if( $( this ).is( ':checked' ) )
+        {
+            $( this ).parent( 'li' ).parent( 'ul' ).find( 'li' ).each( function( index, li )
+            {
+                var checkbox = $( li ).find( 'input[type=checkbox]' );
+                $( checkbox ).prop('checked', true);
+            });
+        }
+        else
+        {
+            $( this ).parent( 'li' ).parent( 'ul' ).find( 'li' ).each( function( index, li )
+            {
+                var checkbox = $( li ).find( 'input[type=checkbox]' );
+                $( checkbox ).prop('checked', false);
+            });
+        }
+    }
+
+    // Collect the selected values
     var checkedContainer = [];
 
     $( this ).parent( 'li' ).parent( 'ul' ).find( 'li' ).each( function( index, li )
@@ -70,7 +103,9 @@ $( 'body' ).on( 'change', '.dropdown-menu li input[type=checkbox]', function()
         var checkbox = $( li ).find( 'input[type=checkbox]' );
 
         if( checkbox.length === 1 && $( checkbox ).is( ':checked' ) )
+        {
             checkedContainer.push( $( checkbox ).val() )
+        }
     });
     console.log( checkedContainer );
 });

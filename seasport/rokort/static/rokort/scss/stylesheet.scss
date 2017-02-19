@@ -263,6 +263,12 @@ select {
 .dropdown-menu {
     padding:5px;
     border-radius:0px !important;
+    max-height:400px;
+    width:220px;
+    overflow:auto;
+    li input[type=checkbox], li label {
+        cursor:pointer;
+    }
 }
 .multi-select-list-item {
     padding-left:10px;
