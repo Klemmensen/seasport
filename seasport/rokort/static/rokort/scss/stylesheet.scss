@@ -292,8 +292,9 @@ select {
     tbody tr.boat-overview-tr {
         transition: background .6s ease;
         border-bottom:1px solid #CCC;
-        &:last-child {
-            border-bottom:0px;
+        border-right:1px solid #CCC;
+        &:nth-child(2) {
+            border-top:1px solid #CCC;
         }
         td {
             width:25%;
@@ -308,10 +309,10 @@ select {
         }
     }
     tr.boat-overview-tr {
-        background:#F9F9F9;
+        background:#FFF;
     }
     tr.boat-overview-tr:hover {
-        background:#F0F0F0;
+        background:#F9F9F9;
     }
 }
 .boat-overview-table-template-wrapper {

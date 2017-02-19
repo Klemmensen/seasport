@@ -99,7 +99,7 @@
                 <tbody>
                     {% for Boat in Boats.all %}
                         <tr class="boat-overview-tr hidden-md-up">
-                            <td colspan="2" style="border-left:2px solid #777; background:#AAA; color:#FFF; text-align:left; height:35px; padding:10px 15px 0px 15px;"><p>{{ Boat.name }}</p></td>
+                            <td colspan="2" style="border-left:2px solid #CCC; border-top:1px solid #CCC; background:#F1F1F1; color:#000; text-align:left; height:35px; padding:10px 15px 0px 15px;"><p>{{ Boat.name }}</p></td>
                         </tr>
                         <tr class="boat-overview-tr available-border">
                             <td><img src="{{ static }}/{{ Boat.image }}" /></td>
