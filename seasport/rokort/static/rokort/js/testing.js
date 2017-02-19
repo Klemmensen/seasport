@@ -1,5 +1,5 @@
 $( 'body' ).on( 'click', '.btn', function(){
-    $( "body" ).find( "[data-identifier='" + $( this ).attr( 'data-identifier' ) + "']" ).toggleClass( 'btn-active' );
+    $( this ).toggleClass( 'btn-active' );
 });
 
 jQuery.fn.extend({
@@ -21,38 +21,17 @@ jQuery.fn.extend({
 });
 // $( this ).toggleText( $( this ).attr( 'data-first' ), $( this ).attr( 'data-second' ) );
 
-$( function()
-{
-    $('.fixed-content' ).each( function( element )
-    {
-        $( this ).clone().appendTo( $( '.fixed-nav-content' ) );
-    });
-});
-
 $(window).on( 'scroll', function()
 {
     if ($(window).scrollTop() >= 205 )
     {
-        $( '.fixed-nav' ).stop().show();
-
-        $( 'div.btn-group' ).each( function()
-        {
-            if( !$( this ).parent( 'div' ).parent( 'div' ).parent( 'div' ).hasClass( 'fixed-nav-content' ) )
-            {
-                $( this ).removeClass( 'open' );
-            }
-        });
+        $( '.boat-container' ).css( {'margin-top': 64} );
+        $( '.make-static' ).addClass( 'fixed-nav' );
     }
     else
     {
-        $( '.fixed-nav' ).stop().hide();
-        $( 'div.btn-group' ).each( function()
-        {
-            if( $( this ).parent( 'div' ).parent( 'div' ).parent( 'div' ).hasClass( 'fixed-nav-content' ) )
-            {
-                $( this ).removeClass( 'open' );
-            }
-        });
+        $( '.make-static' ).removeClass( 'fixed-nav' );
+        $( '.boat-container' ).css( {'margin-top':'0px'} );
     }
 });
 
@@ -85,7 +64,6 @@ $( 'body' ).on( 'click', '.view-toggler', function()
 $( 'body' ).on( 'change', '.dropdown-menu li input[type=checkbox]', function()
 {
     var checkedContainer = [];
-    $( this ).parent( 'li' ).parent( 'ul' ).parent( 'div' ).addClass( 'current' );
 
     $( this ).parent( 'li' ).parent( 'ul' ).find( 'li' ).each( function( index, li )
     {
@@ -95,9 +73,4 @@ $( 'body' ).on( 'change', '.dropdown-menu li input[type=checkbox]', function()
             checkedContainer.push( $( checkbox ).val() )
     });
     console.log( checkedContainer );
-
-    var content = $( this ).parent( 'li' ).parent( 'ul' ).parent( 'div' ).parent( 'div' ).find( 'div.btn-group' ).clone();
-    $( content ).removeClass( 'open' );
-    $( 'div.btn-group' ).not( '.current' ).replaceWith( content );
-    $( 'div.btn-group' ).removeClass( 'current' );
 });
