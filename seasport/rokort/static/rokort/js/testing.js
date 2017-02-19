@@ -23,9 +23,9 @@ jQuery.fn.extend({
 
 $(window).on( 'scroll', function()
 {
-    if ($(window).scrollTop() >= 205 )
+    if ($(window).scrollTop() >= 202 )
     {
-        $( '.boat-container' ).css( {'margin-top': 64} );
+        $( '.boat-container' ).css( {'margin-top': 63.4} );
         $( '.make-static' ).addClass( 'fixed-nav' );
     }
     else
