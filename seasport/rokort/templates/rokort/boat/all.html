@@ -29,7 +29,7 @@
             <div class="padding-box text-xs-center">
                 <div class="btn-group">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Alle båd typer <span class="caret"></span>
+                        Båd typer <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
                         <li><input type="checkbox" value="all" id="all" checked /> <label for="all"> Vælg/fravælg alle</label></li>
@@ -51,8 +51,9 @@
                         <li class="multi-select-list-item"><input type="checkbox" value="Foss kano" id="Foss kano" checked /> <label for="Foss kano"> Foss kano (7)</label></li>
                     </ul>
                 </div>
-                <button class="btn">Vis ledige</button>
-                <button class="btn">Tidligere bookinger</button>
+                <button class="btn btn-active toggle-active availability-indicator">Alle</button>
+                <button class="btn toggle-active availability-indicator">Ledige</button>
+                <button class="btn toggle-active">Tidligere bookinger</button>
             </div>
         </div>
         <div class="col-xs-12 col-lg-3">
@@ -66,38 +67,53 @@
 {% endblock %}
 
 {% block content %}
-<div class="boat-container">
-    {% for Boat in Boats.all %}
-        <div class="col-xs-12 col-sm-6 col-lg-4 boat-wrapper" data-image="{{ static }}/{{ Boat.image }}" data-name="{{ Boat.name }}" data-editurl="{% url 'boat-edit' id=Boat.id %}">
-            <div class="padding-box">
-
-                <div class="boat-image-wrapper">
-                    <img src="{{ static }}/{{ Boat.image }}" />
-                    <div class="padding-box">
-                        <a href="{% url 'boat-edit' id=Boat.id %}">Rediger båd</a>
+    <div class="boat-container">
+        {% for Boat in Boats.all %}
+            <div class="col-xs-12 col-sm-6 col-lg-4 boat-wrapper" data-image="{{ static }}/{{ Boat.image }}" data-name="{{ Boat.name }}" data-editurl="{% url 'boat-edit' id=Boat.id %}">
+                <div class="padding-box">
+                    <div class="boat-image-wrapper">
+                        <img src="{{ static }}/{{ Boat.image }}" />
+                        <div class="padding-box">
+                            <a href="{% url 'boat-edit' id=Boat.id %}">Rediger båd</a>
+                        </div>
                     </div>
+                    <table class="table-general">
+                        <tr>
+                            <td>{{ Boat.name }}</td>
+                            <td align="right">
+                                <a href="#">
+                                    <img src="/static/rokort/img/calender-icon.png" title="Book {{ Boat.name }}" style="width:25px; height:20px; vertical-align:top; cursor:pointer;" />
+                                </a>
+                            </td>
+                        </tr>
+                        <!-- {{ Boat.updated_at|date:"d M Y, H:i:s" }} -->
+                    </table>
                 </div>
-
-                <table class="table-general">
-                    <tr>
-                        <td>{{ Boat.name }}</td>
-                        <td align="right">
-                            <a href="#">
-                                <img src="/static/rokort/img/calender-icon.png" title="Book {{ Boat.name }}" style="width:25px; height:20px; vertical-align:top; cursor:pointer;" />
-                            </a>
-                        </td>
-                    </tr>
-                    <!-- {{ Boat.updated_at|date:"d M Y, H:i:s" }} -->
-                </table>
             </div>
-        </div>
-    {% endfor %}
-</div>
+        {% endfor %}
+    </div>
 
     <div class="col-xs-12 boat-overview-table-template-wrapper">
-        <table class="table-general boat-overview-table-template">
-            <tbody></tbody>
-        </table>
+        <div>
+            <table class="table-general boat-overview-table-template">
+                <tbody>
+                    {% for Boat in Boats.all %}
+                        <tr class="boat-overview-tr hidden-md-up">
+                            <td colspan="2" style="border-left:2px solid #777; background:#AAA; color:#FFF; text-align:left; height:35px; padding:10px 15px 0px 15px;"><p>{{ Boat.name }}</p></td>
+                        </tr>
+                        <tr class="boat-overview-tr available-border">
+                            <td><img src="{{ static }}/{{ Boat.image }}" /></td>
+                            <td class="hidden-sm-down"><p>{{ Boat.name }}</p></td>
+                            <td class="hidden-sm-down"><a href="{% url 'boat-edit' id=Boat.id %}">Book</a></td>
+                            <td>
+                                <a href="{% url 'boat-edit' id=Boat.id %}">Rediger båd</a>
+                                <a class="hidden-md-up" href="{% url 'boat-edit' id=Boat.id %}" style="display:block; margin-top:10px;">Book</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 
 <div style="clear: both; margin-top:30px;"></div>
