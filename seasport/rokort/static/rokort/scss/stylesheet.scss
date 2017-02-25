@@ -17,6 +17,10 @@ hr {
      margin-top:0px;
 }
 
+a, p, li, button {
+    font-size:16px;
+}
+
 a, a:hover {
     text-decoration:none;
 }
@@ -167,7 +171,7 @@ div, input, table, th, td, section, article, nav, header, footer {
 
 /* Buttons */
 button:focus, select:focus { outline:none !important; }
-.btn {
+button.btn {
     background: #ffffff;
     background-image: -webkit-linear-gradient(top, #ffffff, #f7f9fa);
     background-image: -moz-linear-gradient(top, #ffffff, #f7f9fa);
@@ -185,7 +189,7 @@ button:focus, select:focus { outline:none !important; }
     margin-bottom:4px;
     border-radius: 0px;
 }
-.btn-active {
+button.btn-active {
     background: #ffffff;
     background-image: -webkit-linear-gradient(top, #2773B2, #216196);
     background-image: -moz-linear-gradient(top, #2773B2, #216196);
@@ -204,7 +208,7 @@ button:focus, select:focus { outline:none !important; }
     border-radius: 0px;
 }
 
-.btn:hover {
+button.btn:hover {
     background: #ffffff;
     background-image: -webkit-linear-gradient(top, #ffffff, #edf0f2);
     background-image: -moz-linear-gradient(top, #ffffff, #edf0f2);
@@ -213,7 +217,7 @@ button:focus, select:focus { outline:none !important; }
     background-image: linear-gradient(to bottom, #ffffff, #edf0f2);
     text-decoration: none;
 }
-.btn-active:hover {
+button.btn-active:hover {
     background: #ffffff;
     background-image: -webkit-linear-gradient(top, #256BA6, #1F5C8C);
     background-image: -moz-linear-gradient(top, #256BA6, #1F5C8C);
@@ -320,6 +324,20 @@ select {
     margin-top:30px;
 }
 
+/* Bootstrap modal overlays */
+.modal-content {
+    border-radius:0px;
+    border:none;
+    min-height:200px;
+}
+/* Bootstrap datetimepicker */
+.bootstrap-datetimepicker-widget table td.day {
+    padding:5px;
+}
+.bootstrap-datetimepicker-widget table thead tr:first-child th {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
 
 /* Media Queries */
 /* Large Devices, Wide Screens */

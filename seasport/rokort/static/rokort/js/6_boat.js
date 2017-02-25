@@ -69,8 +69,33 @@ $( 'body' ).on( 'change', '.dropdown-menu li input[type=checkbox]', function()
 
         if( checkbox.length === 1 && $( checkbox ).is( ':checked' ) )
         {
-            checkedContainer.push( $( checkbox ).val() )
+            checkedContainer.push( $( checkbox ).val() );
         }
     });
     console.log( checkedContainer );
+});
+
+// Booing modal overlay
+$( '.booking-image' ).on( 'click', function()
+{
+    $( '.booking-modal-overlay' ).modal( 'show' );
+});
+
+$( '.close-modal' ).on( 'click', function()
+{
+    $( '.booking-modal-overlay' ).modal( 'hide' );
+});
+
+// Bootstrap calender
+$( function()
+{
+    $( '#datetimepicker' ).datetimepicker(
+    {
+        inline: true,
+        sideBySide: false,
+        viewMode: 'months',
+        calendarWeeks: true,
+        format:  'mm/DD/YYYY HH:mm',
+        locale: 'da'
+    });
 });
