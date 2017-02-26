@@ -106,10 +106,23 @@ $( function()
         viewMode: 'days',
         calendarWeeks: true,
         format:  'mm/DD/YYYY HH:mm',
-        locale: 'da'
+        locale: 'da',
+        minDate: moment(),
+        maxDate: moment().add(1, 'months')
     }).on( 'dp.change', function( e )
     {
-        $( '#chosen-datetime-start' ).html( moment(e.date._d).format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
-        $( '#chosen-datetime-end' ).html( moment(e.date._d).add(2, 'hours').format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
+        if( moment( e.date._d ).isBefore( moment() ) )
+        {
+            // alert( 'Det ser ud til at tidspunktet ligger i fortiden - Tjek tiden.' );
+            $( '#chosen-datetime-start' ).html( moment().format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
+            $( '#chosen-datetime-end' ).html( moment().add(2, 'hours').format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
+
+            
+        }
+        else
+        {
+            $( '#chosen-datetime-start' ).html( moment( e.date._d ).format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
+            $( '#chosen-datetime-end' ).html( moment( e.date._d ).add( 2, 'hours' ).format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
+        }
     });
 });
