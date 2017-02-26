@@ -80,7 +80,7 @@ $( '.booking-image' ).on( 'click', function()
 {
     $( '.booking-modal-overlay' ).modal( 'show' );
     $( '#chosen-datetime-start' ).html( moment().format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
-    $( '#chosen-datetime-end' ).html( moment().format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
+    $( '#chosen-datetime-end' ).html( moment().add(2, 'hours').format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
 });
 
 $( '.close-modal' ).on( 'click', function()
@@ -110,5 +110,6 @@ $( function()
     }).on( 'dp.change', function( e )
     {
         $( '#chosen-datetime-start' ).html( moment(e.date._d).format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
+        $( '#chosen-datetime-end' ).html( moment(e.date._d).add(2, 'hours').format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
     });
 });
