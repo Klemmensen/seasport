@@ -1315,6 +1315,8 @@ $( 'body' ).on( 'change', '.dropdown-menu li input[type=checkbox]', function()
 $( '.booking-image' ).on( 'click', function()
 {
     $( '.booking-modal-overlay' ).modal( 'show' );
+    $( '#chosen-datetime-start' ).html( moment().format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
+    $( '#chosen-datetime-end' ).html( moment().format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
 });
 
 $( '.close-modal' ).on( 'click', function()
@@ -1322,16 +1324,27 @@ $( '.close-modal' ).on( 'click', function()
     $( '.booking-modal-overlay' ).modal( 'hide' );
 });
 
-// Bootstrap calender
+// Bootstrap calender for booking a boat - Incl. callback that checks for availability on selected time
 $( function()
 {
+    moment.locale( 'da' );
+    moment.updateLocale('da',
+    {
+        weekdays : [
+            "Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"
+        ]
+    });
+
     $( '#datetimepicker' ).datetimepicker(
     {
         inline: true,
         sideBySide: false,
-        viewMode: 'months',
+        viewMode: 'days',
         calendarWeeks: true,
         format:  'mm/DD/YYYY HH:mm',
         locale: 'da'
+    }).on( 'dp.change', function( e )
+    {
+        $( '#chosen-datetime-start' ).html( moment(e.date._d).format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
     });
 });

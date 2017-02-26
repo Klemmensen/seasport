@@ -1,4 +1,4 @@
-@import 'variables';
+@import '3_variables';
 
 * {
     padding:0px;
@@ -333,6 +333,13 @@ select {
 /* Bootstrap datetimepicker */
 .bootstrap-datetimepicker-widget table td.day {
     padding:5px;
+}
+.bootstrap-datetimepicker-widget table td.day.active, .bootstrap-datetimepicker-widget table td.day:hover,
+.bootstrap-datetimepicker-widget table td span.active, .bootstrap-datetimepicker-widget table td span:hover,
+.bootstrap-datetimepicker-widget table td.day:hover, .bootstrap-datetimepicker-widget table td.hour:hover,
+.bootstrap-datetimepicker-widget table td.minute:hover, .bootstrap-datetimepicker-widget table td.second:hover,
+.bootstrap-datetimepicker-widget table thead tr:first-child th{
+    border-radius:0px;
 }
 .bootstrap-datetimepicker-widget table thead tr:first-child th {
     padding-bottom: 10px;
