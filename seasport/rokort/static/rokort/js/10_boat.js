@@ -75,12 +75,27 @@ $( 'body' ).on( 'change', '.dropdown-menu li input[type=checkbox]', function()
     console.log( checkedContainer );
 });
 
-// Booing modal overlay
+// Booking modal overlay
 $( '.booking-image' ).on( 'click', function()
 {
     $( '.booking-modal-overlay' ).modal( 'show' );
     $( '#chosen-datetime-start' ).html( moment().format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
     $( '#chosen-datetime-end' ).html( moment().add(2, 'hours').format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
+
+    $( '#booking-slider' ).slider(
+    {
+        ticks: [0, 4, 8, 12, 16, 20, 24],
+        ticks_labels: ['0', '4', '8', '12', '16', '20', '24'],
+        min: 0,
+	    max: 24,
+        step: 0.5,
+        tooltip: 'always',
+        value: 2,
+        formatter: function( value )
+        {
+            return value == 1 ? value + ' time' : value + ' timer';
+        }
+    });
 });
 
 $( '.close-modal' ).on( 'click', function()
@@ -104,25 +119,21 @@ $( function()
         inline: true,
         sideBySide: false,
         viewMode: 'days',
-        calendarWeeks: true,
         format:  'mm/DD/YYYY HH:mm',
         locale: 'da',
-        minDate: moment(),
+        minDate: moment().add(10, 'minutes'),
         maxDate: moment().add(1, 'months')
     }).on( 'dp.change', function( e )
     {
         if( moment( e.date._d ).isBefore( moment() ) )
         {
-            // alert( 'Det ser ud til at tidspunktet ligger i fortiden - Tjek tiden.' );
             $( '#chosen-datetime-start' ).html( moment().format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
             $( '#chosen-datetime-end' ).html( moment().add(2, 'hours').format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
-
-            
         }
         else
         {
             $( '#chosen-datetime-start' ).html( moment( e.date._d ).format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
             $( '#chosen-datetime-end' ).html( moment( e.date._d ).add( 2, 'hours' ).format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
         }
-    });
+    }.bind(this));
 });

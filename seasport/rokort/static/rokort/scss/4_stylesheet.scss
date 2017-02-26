@@ -346,6 +346,11 @@ select {
     padding-top: 10px;
 }
 
+/* Bootstrap slider */
+.slider .tooltip.top {
+    margin-top: -22px;
+}
+
 /* Media Queries */
 /* Large Devices, Wide Screens */
 @media (min-width:993px) {
