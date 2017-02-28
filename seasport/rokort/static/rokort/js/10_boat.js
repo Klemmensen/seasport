@@ -79,8 +79,8 @@ $( 'body' ).on( 'change', '.dropdown-menu li input[type=checkbox]', function()
 $( '.booking-image' ).on( 'click', function()
 {
     $( '.booking-modal-overlay' ).modal( 'show' );
-    $( '#chosen-datetime-start' ).html( moment().format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
-    $( '#chosen-datetime-end' ).html( moment().add(2, 'hours').format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
+    $( '#chosen-datetime-start' ).html( moment().format( "dddd [d.]D MMMM YYYY, [Kl. ]HH:mm" ) );
+    $( '#chosen-datetime-end' ).html( moment().format( "dddd [d.]D MMMM YYYY, [Kl. ]HH:mm" ) );
 
     $( '#booking-slider' ).slider(
     {
@@ -90,20 +90,28 @@ $( '.booking-image' ).on( 'click', function()
 	    max: 24,
         step: 0.5,
         tooltip: 'always',
-        value: 2,
+        value: 0,
         formatter: function( value )
         {
             return value == 1 ? value + ' time' : value + ' timer';
         }
+    }).on( 'slide', function( slider )
+    {
+        $( '#chosen-datetime-end' )
+            .html( moment( $( "#datetimepicker" )
+            .data("DateTimePicker").date() )
+            .add( slider.value, 'hours' )
+            .format( "dddd [d.]D MMMM YYYY, [Kl. ]HH:mm" ) );
     });
 });
 
+// Close the modal overlay
 $( '.close-modal' ).on( 'click', function()
 {
     $( '.booking-modal-overlay' ).modal( 'hide' );
 });
 
-// Bootstrap calender for booking a boat - Incl. callback that checks for availability on selected time
+// Bootstrap calender for booking a boat - Incl. event handler which checks for availability on selected time
 $( function()
 {
     moment.locale( 'da' );
@@ -121,19 +129,21 @@ $( function()
         viewMode: 'days',
         format:  'mm/DD/YYYY HH:mm',
         locale: 'da',
-        minDate: moment().add(10, 'minutes'),
+        minDate: moment(),
         maxDate: moment().add(1, 'months')
     }).on( 'dp.change', function( e )
     {
+        var sliderValue = $( '#booking-slider' ).slider( 'getValue' );
+
         if( moment( e.date._d ).isBefore( moment() ) )
         {
-            $( '#chosen-datetime-start' ).html( moment().format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
-            $( '#chosen-datetime-end' ).html( moment().add(2, 'hours').format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
+            $( '#chosen-datetime-start' ).html( moment().format( "dddd [d.]D MMMM YYYY, [Kl. ]HH:mm" ) );
+            $( '#chosen-datetime-end' ).html( moment().add( sliderValue, 'hours' ).format( "dddd [d.]D MMMM YYYY, [Kl. ]HH:mm" ) );
         }
         else
         {
-            $( '#chosen-datetime-start' ).html( moment( e.date._d ).format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
-            $( '#chosen-datetime-end' ).html( moment( e.date._d ).add( 2, 'hours' ).format( "dddd [d.]D MMMM YYYY, [Kl. ]k:mm" ) );
+            $( '#chosen-datetime-start' ).html( moment( e.date._d ).format( "dddd [d.]D MMMM YYYY, [Kl. ]HH:mm" ) );
+            $( '#chosen-datetime-end' ).html( moment( e.date._d ).add( sliderValue, 'hours' ).format( "dddd [d.]D MMMM YYYY, [Kl. ]HH:mm" ) );
         }
-    }.bind(this));
+    });
 });
