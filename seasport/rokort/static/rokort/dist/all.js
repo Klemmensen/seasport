@@ -139,16 +139,8 @@ $( function()
     {
         var sliderValue = $( '#booking-slider' ).slider( 'getValue' );
 
-        if( moment( e.date._d ).isBefore( moment() ) )
-        {
-            $( '#chosen-datetime-start' ).html( moment().format( "dddd [d.]D MMMM YYYY, [Kl. ]HH:mm" ) );
-            $( '#chosen-datetime-end' ).html( moment().add( sliderValue, 'hours' ).format( "dddd [d.]D MMMM YYYY, [Kl. ]HH:mm" ) );
-        }
-        else
-        {
-            $( '#chosen-datetime-start' ).html( moment( e.date._d ).format( "dddd [d.]D MMMM YYYY, [Kl. ]HH:mm" ) );
-            $( '#chosen-datetime-end' ).html( moment( e.date._d ).add( sliderValue, 'hours' ).format( "dddd [d.]D MMMM YYYY, [Kl. ]HH:mm" ) );
-        }
+        $( '#chosen-datetime-start' ).html( moment( e.date._d ).format( "dddd [d.]D MMMM YYYY, [Kl. ]HH:mm" ) );
+        $( '#chosen-datetime-end' ).html( moment( e.date._d ).add( sliderValue, 'hours' ).format( "dddd [d.]D MMMM YYYY, [Kl. ]HH:mm" ) );
     });
 });
 
