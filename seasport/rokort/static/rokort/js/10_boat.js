@@ -81,6 +81,7 @@ $( '.booking-image' ).on( 'click', function()
     $( '.booking-modal-overlay' ).modal( 'show' );
     $( '#chosen-datetime-start' ).html( moment().format( "dddd [d.]D MMMM YYYY, [Kl. ]HH:mm" ) );
     $( '#chosen-datetime-end' ).html( moment().format( "dddd [d.]D MMMM YYYY, [Kl. ]HH:mm" ) );
+    $( '#booking-slider' ).slider( 'setValue', 0 );
 
     $( '#booking-slider' ).slider(
     {
