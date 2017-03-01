@@ -99,8 +99,7 @@ $( '.booking-image' ).on( 'click', function()
     }).on( 'slide', function( slider )
     {
         $( '#chosen-datetime-end' )
-            .html( moment( $( "#datetimepicker" )
-            .data("DateTimePicker").date() )
+            .html( moment( $( "#datetimepicker" ).data("DateTimePicker").date() )
             .add( slider.value, 'hours' )
             .format( "dddd [d.]D MMMM YYYY, [Kl. ]HH:mm" ) );
     });
