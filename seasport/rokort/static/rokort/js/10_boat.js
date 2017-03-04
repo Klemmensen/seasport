@@ -72,7 +72,6 @@ $( 'body' ).on( 'change', '.dropdown-menu li input[type=checkbox]', function()
             checkedContainer.push( $( checkbox ).val() );
         }
     });
-    console.log( checkedContainer );
 });
 
 // Booking modal overlay

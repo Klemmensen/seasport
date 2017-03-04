@@ -18,7 +18,7 @@ hr {
 }
 
 a, p, li, button {
-    font-size:16px;
+    font-size:16px !important;
 }
 
 a, a:hover {
@@ -183,7 +183,6 @@ button.btn {
     box-shadow: 0px 0px 2px #666666;
     font-family: Arial;
     color: #857585;
-    padding: 2px 5px 2px 5px;
     border:1px solid #f0f3f5;
     text-decoration: none;
     margin-bottom:4px;
@@ -201,7 +200,6 @@ button.btn-active {
     box-shadow: 0px 0px 2px #666666;
     font-family: Arial;
     color: #FFF;
-    padding: 2px 5px 2px 5px;
     border:1px solid #216196;
     text-decoration: none;
     margin-bottom:4px;
