@@ -100,11 +100,10 @@ $( '.booking-image' ).on( 'click', function()
         {
             return value == 1 ? value + ' time' : value + ' timer';
         }
-    }).on( 'slide', function( slider )
+    }).on( 'slideStop', function( slider )
     {
         $( '#chosen-datetime-end' )
-            .html( moment( $( "#datetimepicker" )
-            .data("DateTimePicker").date() )
+            .html( moment( $( "#datetimepicker" ).data("DateTimePicker").date() )
             .add( slider.value, 'hours' )
             .format( "dddd [d.]D MMMM YYYY, [Kl. ]HH:mm" ) );
     });
